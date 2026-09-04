@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#101114">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Blur Slider Demo"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingBottom="12dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/selectImageButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="اختيار صورة" />
+
+        <Button
+            android:id="@+id/depthButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="8dp"
+            android:text="عزل Portrait" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="12dp"
+        android:background="#202228">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="الصورة المختارة" />
+
+        <com.example.blurslider.DepthBlurGLView
+            android:id="@+id/depthBlurView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:contentDescription="معاينة Portrait Blur عبر OpenGL ES" />
+
+        <TextView
+            android:id="@+id/emptyText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="اختر صورة للتجربة"
+            android:textColor="#B8BBC5"
+            android:textSize="16sp" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/depthView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:scaleType="fitCenter"
+        android:visibility="gone"
+        android:contentDescription="خريطة العمق" />
+
+    <TextView
+        android:id="@+id/blurValueText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="قوة البلور: 0"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:paddingTop="12dp" />
+
+    <SeekBar
+        android:id="@+id/blurSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="25"
+        android:progress="0" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="اضغط عزل Portrait ثم تحكم في بلور الخلفية"
+        android:textColor="#8F939E"
+        android:textSize="13sp"
+        android:paddingTop="4dp" />
+</LinearLayout>
